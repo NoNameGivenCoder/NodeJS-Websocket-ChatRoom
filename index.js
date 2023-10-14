@@ -21,7 +21,11 @@ wss.on('connection', function connection(ws) {
 
     ws.on('message', function incoming(data) {
 
-        all_messages.push(Buffer.from(data).toString())
+        if (!all_messages.length >= 50) {
+            all_messages.push(Buffer.from(data).toString())
+        } else {
+            all_messages = []
+        }
 
         console.log(Buffer.from(data).toString())
         wss.clients.forEach(function each(client) {
