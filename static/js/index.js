@@ -1,6 +1,6 @@
 let ws;
 
-ws = new WebSocket("wss://nodejs-websocket-chatroom-production.up.railway.app/");
+ws = new WebSocket("ws://localhost:8080");
 ws.onopen = ({data}) => {
     console.log("Connected to websocket");
 
@@ -14,12 +14,12 @@ ws.onclose = () => {
 }
 
 function sendMessage() {
-    const content = $('#content').val();
+    var content = $('#content').val();
 
     ws.send(content);
 
     $("#messages-list").append(`<li> ${content} </li>`);
-    content = ""
+    $('#content').val("");
 }
 
 async function showMessage(data) {

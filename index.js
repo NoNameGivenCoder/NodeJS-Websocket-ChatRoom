@@ -21,10 +21,11 @@ wss.on('connection', function connection(ws) {
 
     ws.on('message', function incoming(data) {
 
-        if (!all_messages.length >= 50) {
-            all_messages.push(Buffer.from(data).toString())
-        } else {
+        if (all_messages.length > 50) {
             all_messages = []
+            console.log("Reset!")
+        } else {
+            all_messages.push(Buffer.from(data).toString())
         }
 
         console.log(Buffer.from(data).toString())
