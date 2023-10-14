@@ -19,6 +19,7 @@ function sendMessage() {
     ws.send(content);
 
     $("#messages-list").append(`<li> ${content} </li>`);
+    content = ""
 }
 
 async function showMessage(data) {
