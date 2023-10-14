@@ -26,6 +26,7 @@ async function showMessage(data) {
 
     try {
         JSON.parse(data).forEach(element => {
+
             $("#messages-list").append(`<li> ${element} </li>`);
         });
     } catch(err) {
