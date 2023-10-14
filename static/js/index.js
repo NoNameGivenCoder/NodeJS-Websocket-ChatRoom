@@ -1,6 +1,6 @@
 let ws;
 
-ws = new WebSocket("ws://localhost:8080");
+ws = new WebSocket("wss://nodejs-websocket-chatroom-production.up.railway.app");
 ws.onopen = ({data}) => {
     console.log("Connected to websocket");
 
