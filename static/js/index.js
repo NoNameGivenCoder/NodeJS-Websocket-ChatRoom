@@ -23,11 +23,11 @@ function sendMessage() {
 
 async function showMessage(data) {
 
-    if (data.includes('[')) {
+    try {
         JSON.parse(data).forEach(element => {
             $("#messages-list").append(`<li> ${element} </li>`);
         });
-    } else {
+    } catch(err) {
         $("#messages-list").append(`<li> ${await data.text()} </li>`);   
     }
 }
