@@ -1,6 +1,6 @@
 let ws;
 
-ws = new WebSocket("ws://localhost:6969");
+ws = new WebSocket("ws://localhost:8080");
 ws.onopen = ({data}) => {
     console.log("Connected to websocket");
 

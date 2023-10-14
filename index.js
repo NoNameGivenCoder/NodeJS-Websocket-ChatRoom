@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
+
 const http = require('http')
 const WebSocket = require('ws')
 
 const path = require('path')
 
-const server = http.createServer(express)
+const server = http.createServer(app)
 
 const fs = require('fs')
 
@@ -37,10 +38,6 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + "/index.html")
 })
 
-app.listen(8080, () => {
-    console.log('Expresss listening on port 8080.')
-})
-
-server.listen(6969, () => {
+server.listen(process.env.PORT || 8080, () => {
     console.log('Messaging server listening on port 6969.')
 })
